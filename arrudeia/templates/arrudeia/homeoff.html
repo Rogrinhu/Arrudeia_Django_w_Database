@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/homeoff.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Arrudeia - Bem-vindo</title>
+    <link rel="icon" href="{% static 'assets/logo colorida 1.png' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'assets/logo colorida 1.png' %}" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="{% static 'assets/logo-arrudeia.png' %}" alt="Arrudeia" class="logo-img">
+                <img src="{% static 'assets/arrudeia_branco.png' %}" alt="logo" class="logo-text">
+            </div>
+            <div class="logCad">
+                <span class="entra"><a href="{% url 'login' %}">Entrar</a></span>
+                <span class="cadastro"><a href="{% url 'login' %}">Cadastrar</a></span>
+            </div>
+        </div>
+    </header>
+    <!-- main -->
+    <main>
+        <!-- CAROSSEL -->
+        <section class="carousel-section">
+            <div class="carousel-container">
+                <ul class='slider'>
+                    <li class='item' style="background-image: url('{% static 'assets/carossel 1.jpg' %}')">
+                        <div class='content'>
+                            <h2 class='title'>Arrudeie</h2>
+                            <p class='description'> Redescubra Recife caminhando, explorando e se conectando com a cidade de forma consciente.</p>
+                            <button><a href="{% url 'login' %}">Veja mais</a></button>
+                        </div>
+                    </li>
+                    <li class='item' style="background-image: url('{% static 'assets/carossel 2.jpg' %}')">
+                        <div class='content'>
+                            <img class='title-arrudeia' src="{% static 'assets/arrudeia_branco.png' %}"></img>
+                            <p class='description'> Descubra a cidade por caminhos que valorizam histórias, pessoas e o jeito único de viver Recife. </p>
+
+                            <button><a href="{% url 'login' %}">Veja mais</a></button>
+                        </div>
+                    </li>
+                    <li class='item' style="background-image: url('{% static 'assets/carossel 3.jpg' %}')">
+                        <div class='content'>
+                            <h2 class='title'>Cada rua conta uma história</h2>
+                            <p class='description'> O Arrudeia conecta você a lugares que revelam a cultura, a memória e a identidade local. </p>
+                            <button><a href="{% url 'login' %}">Veja mais</a></button>
+                        </div>
+                    </li>
+                    <li class='item' style="background-image: url('{% static 'assets/carossel 4.jpg' %}')">
+                        <div class='content'>
+                            <h2 class='title'>Caminhos pensados para todos</h2>
+                            <p class='description'> Indicamos trajetos com informações claras sobre acessibilidade e mobilidade urbana.
+                            </p>
+                            <button><a href="{% url 'login' %}">Veja mais</a></button>
+                        </div>
+                    </li>
+                    <li class='item' style="background-image: url('{% static 'assets/carossel 5.jpg' %}')">
+                        <div class='content'>
+                            <h2 class='title'>Conheça Recife com quem vive a cidade</h2>
+                            <p class='description'>
+                                Guias locais compartilham experiências autênticas e aproximam visitantes da vida recifense.
+                            </p>
+                            <button><a href="{% url 'login' %}">Veja mais</a></button>
+                        </div>
+                    </li>
+                    <li class='item' style="background-image: url('{% static 'assets/carossel 6.jpg' %}')">
+                        <div class='content'>
+                            <h2 class='title'>Explore Recife no seu ritmo</h2>
+                            <p class='description'> Roteiros pensados para quem quer sentir a cidade além dos pontos turísticos tradicionais. </p>
+                            <button><a href="{% url 'login' %}">Veja mais</a></button>
+                        </div>
+                    </li>
+                </ul>
+                <nav class='nav-btn'>
+                    <ion-icon class='btn prev' name="arrow-back-outline"><</ion-icon>
+                    <ion-icon class='btn next' name="arrow-forward-outline">></ion-icon>
+                </nav>
+            </div>
+        </section>
+        <!-- Arrudei + Cabloco -->
+        <section class="features">
+            <div class="feature-card">
+                <img src="{% static 'assets/estabelecimento1.png' %}" class="feature-icon" alt="">
+                <h3>Descoberta de Lugares</h3>
+                <p>Conheça pontos da cidade que vão além do óbvio, com histórias, cultura e vivências locais.</p>
+            </div>
+            <div class="feature-card">
+                <img src="{% static 'assets/guia1.png' %}" class="feature-icon" alt="">
+                <h3>Comunidade e Guias Locais</h3>
+                <p>Roteiros criados e compartilhados por pessoas que vivem a cidade todos os dias.</p>
+            </div>
+            <div class="feature-card">
+                <img src="{% static 'assets/turista.png' %}" class="feature-icon" alt="">
+                <h3>Caminhos Inteligentes</h3>
+                <p>Rotas organizadas para explorar a cidade a pé, com informações claras e práticas.</p>
+            </div>
+        </section>
+        <figure class="mapa">
+            <img src="{% static 'assets/Ativo 1mapa arrudeia.png' %}" alt="mapa">
+        </figure>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="{% static 'assets/logo-arrudeia.png' %}" alt="Arrudeia" class="footer-logo-img">
+            </div>
+            <div class="social">
+                <a href="#"><img src="{% static 'assets/twitter.png' %}" alt="Twitter"></a>
+                <a href="#"><img src="{% static 'assets/facebook.png' %}" alt="Facebook"></a>
+                <a href="#"><img src="{% static 'assets/instagram.png' %}" alt="Instagram"></a>
+            </div>
+            <div class="container footer-patrocinadores">
+                <img src="{% static 'assets/logo-senac.png' %}" alt="Patrocinadores" class="footer-patrocinadores-senac">
+                <img src="{% static 'assets/logo-gerando-falcoes.png' %}" alt="Patrocinadores"
+                    class="footer-patrocinadores-gerando-falcoes">
+                <img src="{% static 'assets/logo-serasa-experian.png' %}" alt="Patrocinadores"
+                    class="footer-patrocinadores-serasa-experian">
+            </div>
+        </div>
+        <div class="footer-links container">
+            <p><b>ARRUDEIA</b> © 2025. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="{% static 'js/theme_toggle.js' %}"></script>
+    <script>
+        const slider = document.querySelector('.slider');
+        let autoplay; // variável do timer
+        const intervalTime = 5000; // 5 segundos
+
+        function nextSlide() {
+            const items = document.querySelectorAll('.item');
+            slider.append(items[0]);
+        }
+
+        function prevSlide() {
+            const items = document.querySelectorAll('.item');
+            slider.prepend(items[items.length - 1]);
+        }
+
+        // -------- AUTOPLAY --------
+        function startAutoplay() {
+            autoplay = setInterval(nextSlide, intervalTime);
+        }
+
+        function resetAutoplay() {
+            clearInterval(autoplay);
+            startAutoplay();
+        }
+
+        // ---------- EVENTOS ----------
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('.next')) {
+                nextSlide();
+                resetAutoplay(); // 🔄 reseta o timer
+            }
+            if (e.target.matches('.prev')) {
+                prevSlide();
+                resetAutoplay(); // 🔄 reseta o timer
+            }
+        });
+
+        // iniciar autoplay assim que carregar
+        startAutoplay();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="{% static 'assets/logo colorida 1.png' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'assets/logo colorida 1.png' %}" type="image/x-icon">
+    <title>Arrudeia - Login e Cadastro</title>
+    <style>
+        :root {
+            --login-arrudeia-colorchange-light: url('{% static 'assets/tipografia preto.png' %}');
+            --login-arrudeia-colorchange-dark: url('{% static 'assets/arrudeia_branco.png' %}');
+        }
+        [data-theme="dark"] {
+            --login-arrudeia-colorchange: var(--login-arrudeia-colorchange-dark);
+        }
+        :root:not([data-theme="dark"]) {
+            --login-arrudeia-colorchange: var(--login-arrudeia-colorchange-light);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Botão de tema -->
+    <button class="theme-toggle" aria-label="Alternar tema">
+        <i class="fas fa-moon"></i>
+    </button>
+    <!-- Header -->
+    <!-- <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="{% static 'assets/logo-arrudeia.png' %}"  alt="Arrudeia" class="logo-img">
+                <span class="logo-text"><img src="{% static 'assets/arrudeia_branco.png' %}" alt="logo" style="width: 100px;"></span>
+            </div>
+            <nav class="nav">
+                <a href="{% url 'index' %}" class="nav-link">Início</a>
+                <a href="{% url 'feed' %}" class="nav-link">ROTEIROS</a>
+                <a href="{% url 'guias' %}" class="nav-link">GUIAS</a>
+                <a href="{% url 'eventos' %}" class="nav-link">EVENTOS</a>
+                <a href="{% url 'faq' %}" class="nav-link">FAQ</a>
+            </nav>
+        </div>
+    </header> -->
+    <main class="main_login">
+        <div class="container_login">
+            <div>
+                <a href="{% url 'homeoff' %}"><img src="{% static 'assets/logo colorida 1.png' %}"
+                        style=" max-width: 170px; margin-bottom: 10px;" alt="Arrudeia Logo"></a>
+            </div>
+            <div class="logo-container">
+                <a href="{% url 'homeoff' %}">
+                    <!-- Logo para tema claro (preto ou colorida)
+                    <img src="{% static 'assets/tipografia preto.png' %}" class="logo-theme logo-light" alt="Arrudeia Logo"> -->
+
+                    <!-- Logo para tema escuro (branco) -->
+                    <img src="{% static 'assets/arrudeia_branco.png' %}" class="logo-theme logo-dark" alt="Arrudeia Logo">
+                </a>
+            </div>
+
+            <!-- Abas -->
+            <div class="tabs-login">
+                <button id="abaLogin" class="aba active">Login</button>
+                <button id="abaCadastro" class="aba">Cadastro</button>
+            </div>
+
+            <!-- FORM DE LOGIN -->
+            <form id="formLogin" class="login-box active" method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" name="username" id="username" placeholder="Digite seu usuário" required>
+                </div>
+                <div class="input-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" name="password" id="senha" placeholder="Digite sua senha" required>
+                </div>
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'error' %}
+                            <div class="alert alert-error" style="color: red; margin-bottom: 10px;">{{ message }}</div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <button type="submit" id="botaoEntrar">Entrar</button>
+            </form>
+
+            <!-- FORM DE CADASTRO -->
+            <form id="formCadastro" class="login-box" method="POST" action="{% url 'cadastro_view' %}">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="nome">Nome completo</label>
+                    <input name="username" type="text" id="nome" placeholder="Digite seu nome" required>
+                </div>
+                <div class="input-group">
+                    <label for="emailCadastro">E-mail</label>
+                    <input name="email" type="email" id="emailCadastro" placeholder="Digite seu e-mail" required>
+                </div>
+                <div class="input-group">
+                    <label for="senhaCadastro">Senha</label>
+                    <input name="password" type="password" id="senhaCadastro" placeholder="Crie uma senha" required>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="terms" name="terms" class="terms" required>
+                    <label for="terms">Li e concordo com os termos da <a href="#" class="privacy-link">Política de
+                            Privacidade</a></label>
+                </div>
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'error' %}
+                            <div class="alert alert-error" style="color: red; margin-bottom: 10px; padding: 10px; background-color: #ffe6e6; border-radius: 5px;">{{ message }}</div>
+                        {% elif message.tags == 'success' %}
+                            <div class="alert alert-success" style="color: green; margin-bottom: 10px; padding: 10px; background-color: #e6ffe6; border-radius: 5px;">{{ message }}</div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <button type="submit" id="btnCadastrar">Cadastrar</button>
+            </form>
+
+        </div>
+        <img src="{% static 'assets/lateral.png' %}" class="dec" alt="">
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="{% static 'assets/logo-arrudeia.png' %}" alt="Arrudeia" class="footer-logo-img">
+            </div>
+            <div class="social">
+                <a href="#"><img src="{% static 'assets/twitter.png' %}" alt="Twitter"></a>
+                <a href="#"><img src="{% static 'assets/facebook.png' %}" alt="Facebook"></a>
+                <a href="#"><img src="{% static 'assets/instagram.png' %}" alt="Instagram"></a>
+            </div>
+            <div class="container footer-patrocinadores">
+                <img src="{% static 'assets/logo-senac.png' %}" alt="Patrocinadores" class="footer-patrocinadores-senac">
+                <img src="{% static 'assets/logo-gerando-falcoes.png' %}" alt="Patrocinadores"
+                    class="footer-patrocinadores-gerando-falcoes">
+                <img src="{% static 'assets/logo-serasa-experian.png' %}" alt="Patrocinadores"
+                    class="footer-patrocinadores-serasa-experian">
+            </div>
+        </div>
+        <div class="footer-links container">
+            <p><b>ARRUDEIA</b> © 2025. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+<script src="{% static 'js/theme_toggle.js' %}"></script>
+<script>
+    const abaLogin = document.getElementById("abaLogin");
+    const abaCadastro = document.getElementById("abaCadastro");
+    const formLogin = document.getElementById("formLogin");
+    const formCadastro = document.getElementById("formCadastro");
+
+    abaLogin.onclick = () => {
+        abaLogin.classList.add("active");
+        abaCadastro.classList.remove("active");
+        formLogin.classList.add("active");
+        formCadastro.classList.remove("active");
+    };
+
+    abaCadastro.onclick = () => {
+        abaCadastro.classList.add("active");
+        abaLogin.classList.remove("active");
+        formCadastro.classList.add("active");
+        formLogin.classList.remove("active");
+    };
+</script>
+<script>
+    // O formulário agora envia diretamente para o Django via POST
+    // Não precisa mais de validação JavaScript para login
+</script>
+
+</html>

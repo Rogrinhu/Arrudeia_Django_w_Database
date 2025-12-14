@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Festival Gastronômico da Várzea</title>
+  <link rel="stylesheet" href="{% static 'css/post-eventos.css' %}">
+  <link rel="icon" href="{% static 'assets/logo colorida 1.png' %}" type="image/x-icon">
+  <link rel="shortcut icon" href="{% static 'assets/logo colorida 1.png' %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'css/theme.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!-- Botão de tema -->
+  <button class="theme-toggle" aria-label="Alternar tema">
+    <i class="fas fa-moon"></i>
+  </button>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo">
+        <img src="{% static 'assets/logo-arrudeia.png' %}" alt="Arrudeia" class="logo-img">
+        <span class="logo-text"><img src="{% static 'assets/arrudeia_branco.png' %}" style="max-width: 100px;" alt="logo"></span>
+      </div>
+      <nav class="nav">
+        <a href="{% url 'index' %}" class="nav-link">INÍCIO</a>
+        <a href="{% url 'feed' %}" class="nav-link">ROTEIROS</a>
+        <a href="{% url 'guias' %}" class="nav-link">GUIAS</a>
+        <a href="{% url 'eventos' %}" class="nav-link active">EVENTOS</a>
+        <a href="{% url 'faq' %}" class="nav-link">FAQ</a>
+      </nav>
+      <div class="user">
+        <a href="{% url 'login' %}"></a>
+        <img src="{% static 'assets/user-avatar.png' %}" style="width: auto; height: 50px;" alt="User" class="user-avatar">
+      </div>
+    </div>
+  </header>
+  <main>
+
+    <div class="layout">
+
+      <!-- COLUNA ESQUERDA -->
+      <div class="coluna-esquerda">
+
+        <section class="content_evento">
+
+          <div class="evento-inicio">
+            <!-- TÍTULO -->
+            <h2>FESTIVAL GASTRONÔMICO DA VÁRZEA</h2>
+          </div>
+          <div class="evento-descri">
+            <!-- TEXTO -->
+            <p style="max-width: 100%;">
+              O <strong>Festival Gastronômico da Várzea</strong> está de volta! Durante três dias, chefs e cozinheiros
+              locais
+              se
+              reúnem para celebrar os sabores da região, com pratos tradicionais, releituras modernas e muita música ao
+              vivo.
+              Além das bancas de comidas típicas, o evento conta com apresentações de grupos culturais, oficinas de
+              culinária
+              e
+              feira de produtos artesanais.
+            </p>
+          </div>
+
+          <div class="evento-img">
+            <img src="{% static 'assets/panela.png' %}" alt="foto">
+          </div>
+
+
+          <div class="evento-data">
+            <div>
+              <!-- ÍCONES DE DATA/LOCAL -->
+              <img src="{% static 'assets/calendario.png' %}">
+              <p>12 a 14 de março de 2026</p>
+            </div>
+            <img src="{% static 'assets/localizaçao.png' %}">
+            <p>Praça da Várzea – Cidade Universitária</p>
+          </div>
+          <div class="evento-descri">
+            <p><em>
+                “A gente cozinha com afeto e memória. Cada prato conta um pedaço da nossa história.”
+              </em> — <span>Maria das Dores Silva, cozinheira e moradora da Várzea.</span>
+            </p>
+
+            <p>
+              <strong>Organização:</strong> Prefeitura e Associação Cultural dos Sabores Locais
+            </p>
+            <p><strong>Entrada:</strong> Gratuita</p>
+
+            <!-- COMPARTILHAMENTO -->
+            <p>📣 Compartilhe esse evento com seus amigos e ajude a fortalecer a cultura local!</p>
+          </div>
+        </section>
+
+        <!-- COMENTÁRIOS -->
+        <section class="avaliaçoes">
+          <h2>Comentários</h2>
+
+          <div>
+            <img src="{% static 'assets/Ellipse 10.png' %}">
+            <p>Já visitei essa rua e amei!!</p>
+          </div>
+
+          <div>
+            <img src="{% static 'assets/Ellipse 10.png' %}">
+            <p>Ótima ideia de passeio, ainda esse ano quero levar minha família</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- COLUNA DIREITA -->
+
+      <aside class="coluna-direita">
+
+        <div class="box-lateral">
+          <h3>Posts relacionados</h3>
+
+          <div class="post">
+            <div>
+              <img src="{% static 'assets/Degustação-Popular.jpg' %}" alt="Degustação Popular no Recife Antigo">
+              <h4>Degustação Popular no Recife Antigo</h4>
+              <p>Um evento breve e animado que reuniu moradores e turistas para experimentar comidas típicas a preços
+                acessíveis, celebrando a cultura e os sabores locais no coração do Recife Antigo.</p>
+            </div>
+
+
+
+            <div>
+              <img src="{% static 'assets/Degustação-Popular.jpg' %}" alt="Concurso “O Melhor Prato da Várzea”">
+              <h4>Concurso “O Melhor Prato da Várzea”</h4>
+              <p>Um evento culinário rápido e envolvente que reuniu cozinheiros locais em uma disputa saborosa para
+                eleger o prato mais apreciado da Várzea, destacando talento e tradição gastronômica da comunidade.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-lateral">
+          <h3>Compartilhe em suas redes:</h3>
+          <div class="box-rede">
+            <button class="btn-rede">
+              <img src="{% static 'assets/instagram.png' %}" alt="Instagram">
+              Instagram
+            </button>
+            <button class="btn-rede">
+              <img src="{% static 'assets/facebook.png' %}" alt="Facebook">
+              Facebook
+            </button>
+            <button class="btn-rede">
+              <img src="{% static 'assets/twitter.png' %}" alt="Twitter">
+              Twitter
+            </button>
+            <button class="btn-rede">
+              <img src="{% static 'assets/logo-whatsapp.webp' %}" alt="WhatsApp">
+              WhatsApp
+            </button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-logo">
+        <img src="{% static 'assets/logo-arrudeia.png' %}" alt="Arrudeia" class="footer-logo-img">
+      </div>
+      <div class="social">
+        <a href="#"><img src="{% static 'assets/twitter.png' %}" alt="Twitter"></a>
+        <a href="#"><img src="{% static 'assets/facebook.png' %}" alt="Facebook"></a>
+        <a href="#"><img src="{% static 'assets/instagram.png' %}" alt="Instagram"></a>
+      </div>
+      <div class="container footer-patrocinadores">
+        <img src="{% static 'assets/logo-senac.png' %}" alt="Patrocinadores" class="footer-patrocinadores-senac">
+        <img src="{% static 'assets/logo-gerando-falcoes.png' %}" alt="Patrocinadores" class="footer-patrocinadores-gerando-falcoes">
+        <img src="{% static 'assets/logo-serasa-experian.png' %}" alt="Patrocinadores" class="footer-patrocinadores-serasa-experian">
+      </div>
+    </div>
+    <div class="footer-links container">
+      <p><b>ARRUDEIA</b> © 2025. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</body>
+<script src="{% static 'js/theme_toggle.js' %}"></script>
+
+</html>
